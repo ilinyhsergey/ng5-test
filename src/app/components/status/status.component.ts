@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {SystemUser} from '../model/system-user';
 
 @Component({
   selector: 'app-status',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusComponent implements OnInit {
 
-  constructor() { }
+  user: SystemUser;
+
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.route.data.subscribe((data: { user: SystemUser }) => {
+      this.user = data.user;
+    });
   }
 
 }

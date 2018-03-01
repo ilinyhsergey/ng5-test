@@ -4,3 +4,7 @@
   <div appRecaptcha key="6LcKNEIUAAAAAPGe3VDGzUcqXyi5iyMD-IPhiXej" formControlName="captcha"></div>
   <input type="submit" [disabled]="signin.invalid" (click)="submit()">
 </form>
+
+<pre *ngIf="error">
+  {{error | json}}
+</pre>

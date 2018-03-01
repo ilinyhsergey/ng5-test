@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../../services/api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,10 @@ export class LoginComponent implements OnInit {
 
   signin: FormGroup;
 
-  private xFalconToken: string;
-  private xXsrfToken: string;
+  error: string;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -32,9 +33,9 @@ export class LoginComponent implements OnInit {
 
     this.apiService.login(username, password, captcha)
       .subscribe((res) => {
-        console.log('____ res', res); // todo
+        this.router.navigate(['status']);
       }, (err) => {
-        console.log('____ err', err); // todo
+        this.error = err;
       });
   }
 

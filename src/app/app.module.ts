@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RecaptchaDirective } from './directives/recaptcha.directive';
 import {ApiService} from './services/api.service';
 import {HttpClientModule} from '@angular/common/http';
+import {AuthService} from './services/auth.service';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule
   ],
   providers: [
+    AuthService,
     ApiService,
     AuthGuardService
   ],
