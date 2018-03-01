@@ -1,3 +1,6 @@
-<p>
-  login works!
-</p>
+<form [formGroup]="signin">
+  <input type="email" placeholder="email" formControlName="email">
+  <input type="password" placeholder="password" formControlName="password">
+  <div appRecaptcha key="6LcKNEIUAAAAAPGe3VDGzUcqXyi5iyMD-IPhiXej" formControlName="captcha"></div>
+  <input type="submit" [disabled]="signin.invalid" value="Submit">
+</form>
