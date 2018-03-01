@@ -9,6 +9,8 @@ import {AuthGuardService} from './services/auth-guard.service';
 import { StatusComponent } from './components/status/status.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RecaptchaDirective } from './directives/recaptcha.directive';
+import {ApiService} from './services/api.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -22,10 +24,12 @@ import { RecaptchaDirective } from './directives/recaptcha.directive';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
     AppRoutingModule
   ],
   providers: [
+    ApiService,
     AuthGuardService
   ],
   bootstrap: [AppComponent]
